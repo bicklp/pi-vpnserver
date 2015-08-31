@@ -69,6 +69,8 @@ Setup Raspberry Pi as an openVPN server
 
 >check file for local settings and lan port name is correct
 
+`nano /etc/network/interfaces`
+
 >add line to interfaces file with a tab at the beginning
 
 >pre-up /etc/firewall-openvpn-rules.sh
