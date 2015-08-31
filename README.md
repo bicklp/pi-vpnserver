@@ -6,14 +6,17 @@ Server Setup
 `sudo -s`
 
 `apt-get update`
+
 `apt-get upgrade`
 
 `apt-get install openvpn easy-rsa`
 
 `mkdir /etc/openvpn/easy-rsa`
+
 `cp /usr/share/easy-rsa /etc/openvpn/easy-rsa`
 
 `cd /etc/openvpn/easy-rsa`
+
 `nano vars`
 change export EASY_RSA to
 export EASY_RSA="/etc/openvpn/easy-rsa"
