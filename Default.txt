@@ -1,7 +1,7 @@
 client
 dev tun
 proto udp
-remote [server ip / ddns name] 1194
+remote ddns.name 1194 #change ddns.name to public ip / ddns name of server
 resolv-retry infinite
 nobind
 persist-key
