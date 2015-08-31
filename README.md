@@ -20,27 +20,30 @@ Server Setup
 `nano vars`
 
 >change export EASY_RSA to
+
 >export EASY_RSA="/etc/openvpn/easy-rsa"
+
 >change vars at bottom of file to make it easier later
 
 `source ./vars`
 
 `./clean-all`
 
-this will clear all existing certificates use with care
+>this will clear all existing certificates use with care
 
 `./build-ca`
 
-when prompted common name must equal [server name]
+>when prompted common name must equal [server name]
 
 `./build-key-server [server name]`
 
-when prompted common name must equal [server name]
-challenge password must be left blank
+>when prompted common name must equal [server name]
+
+>challenge password must be left blank
 
 `./build-key-pass [vpn_username]`
 
-challenge password must be left blank
+>challenge password must be left blank
 
 `cd /etc/openvpn/easy-rsa/keys`
 
@@ -54,20 +57,21 @@ challenge password must be left blank
 
 `cp /home/nas/files/linux/vpn_server/server.conf /etc/openvpn/`
 
-check server.conf file for local settings
+>check server.conf file for local settings
 
 `nano /etc/sysctl.conf`
 
-uncomment net.ipv4.ip_forward=1
+>uncomment net.ipv4.ip_forward=1
 
 `sysctl -p`
 
 `cp /home/nas/files/linux/vpn_Server/firewall-openvpn-rules.sh /etc`
 
-check file for local settings and lan port name is correct
+>check file for local settings and lan port name is correct
 
-add line to interfaces file with a tab at the beginning
-pre-up /etc/firewall-openvpn-rules.sh
+>add line to interfaces file with a tab at the beginning
+
+>pre-up /etc/firewall-openvpn-rules.sh
 
 `reboot`
 
