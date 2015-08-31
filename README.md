@@ -19,9 +19,9 @@ Server Setup
 
 `nano vars`
 
-change export EASY_RSA to
-export EASY_RSA="/etc/openvpn/easy-rsa"
-change vars at bottom of file to make it easier later
+>change export EASY_RSA to
+>export EASY_RSA="/etc/openvpn/easy-rsa"
+>change vars at bottom of file to make it easier later
 
 `source ./vars`
 
