@@ -104,10 +104,10 @@ wget https://github.com/bicklp/Raspberry-Pi-OVPN-Server/blob/master/firewall-ope
 
 
 
-```
+```javascript
 nano /etc/network/interfaces
 #add line to interfaces file with a tab at the beginning
-#pre-up /etc/firewall-openvpn-rules.sh
+pre-up /etc/firewall-openvpn-rules.sh
 ```
 
 
