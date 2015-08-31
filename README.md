@@ -82,6 +82,10 @@ Setup Raspberry Pi as an openVPN server
 
 `wget https://github.com/bicklp/Raspberry-Pi-OVPN-Server/blob/master/Default.txt -P /etc/openvpn/easy-rsa/keys`
 
+`nano Default.txt`
+
+>Set the Public IP or DDNS name in the Default.txt file
+
 `wget https://github.com/bicklp/Raspberry-Pi-OVPN-Server/blob/master/makeOVPN.sh -P /etc/openvpn/easy-rsa/keys`
 
 `chmod 700 makeOVPN.sh`
