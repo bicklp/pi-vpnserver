@@ -31,11 +31,11 @@ cp /usr/share/easy-rsa /etc/openvpn/easy-rsa
 cd /etc/openvpn/easy-rsa
 ```
 
-```python
+```javascript
 nano vars
-//change export EASY_RSA to
+#change export EASY_RSA to
 export EASY_RSA="/etc/openvpn/easy-rsa"
-//change vars at bottom of file to make it easier later
+#change vars at bottom of file to make it easier later
 ```
 
 ```
@@ -44,23 +44,23 @@ source ./vars
 
 ```
 ./clean-all
-//this will clear all existing certificates use with care
+#this will clear all existing certificates use with care
 ```
 
-```python
+```javascript
 ./build-ca
-//when prompted common name must equal [server name]
+#when prompted common name must equal [server name]
 ```
 
-```python
+```javascript
 ./build-key-server [server name]
-//when prompted common name must equal [server name]
-//challenge password must be left blank
+#when prompted common name must equal [server name]
+#challenge password must be left blank
 ```
 
-```python
+```javascript
 ./build-key-pass [vpn_username]
-//challenge password must be left blank
+#challenge password must be left blank
 ```
 
 ```
@@ -83,30 +83,30 @@ cd /etc/openvpn/easy/rsa
 openvpn --genkey --secret keys/ta.key
 ```
 
-```python
+```javascript
 wget https://github.com/bicklp/Raspberry-Pi-OVPN-Server/blob/master/server.conf -P /etc/openvpn/
-//check server.conf file for local settings
+#check server.conf file for local settings
 ```
 
-```python
+```javascript
 nano /etc/sysctl.conf
-//uncomment net.ipv4.ip_forward=1
+#uncomment net.ipv4.ip_forward=1
 ```
 
 ```
 sysctl -p
 ```
 
-```python
+```javascript
 wget https://github.com/bicklp/Raspberry-Pi-OVPN-Server/blob/master/firewall-openvpn-rules.sh -P  /etc
-//check file for local settings and lan port name is correct
+#check file for local settings and lan port name is correct
 ```
 
 
 
-```python
+```javascript
 nano /etc/network/interfaces
-//add line to interfaces file with a tab at the beginning
+#add line to interfaces file with a tab at the beginning
 pre-up /etc/firewall-openvpn-rules.sh
 ```
 
@@ -127,9 +127,9 @@ cd /etc/openvpn/easy-rsa/keys
 wget https://github.com/bicklp/Raspberry-Pi-OVPN-Server/blob/master/Default.txt -P /etc/openvpn/easy-rsa/keys
 ```
 
-```python
+```javascript
 nano Default.txt
-//Set the Public IP or DDNS name in the Default.txt file
+#Set the Public IP or DDNS name in the Default.txt file
 ```
 
 ```
@@ -140,10 +140,10 @@ wget https://github.com/bicklp/Raspberry-Pi-OVPN-Server/blob/master/makeOVPN.sh 
 chmod 700 makeOVPN.sh
 ```
 
-```python
+```javascript
 ./makeOVPN.sh
-//enter [vpn_username] when prompted
-//export the [vpn_username].ovpn file to clients
+#enter [vpn_username] when prompted
+#export the [vpn_username].ovpn file to clients
 ```
 
 
