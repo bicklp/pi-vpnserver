@@ -55,7 +55,7 @@ Setup Raspberry Pi as an openVPN server
 
 `openvpn --genkey --secret keys/ta.key`
 
-`cp /home/nas/files/linux/vpn_server/server.conf /etc/openvpn/`
+`wget https://github.com/bicklp/Raspberry-Pi-OVPN-Server/blob/master/server.conf -P /etc/openvpn/`
 
 >check server.conf file for local settings
 
@@ -65,7 +65,7 @@ Setup Raspberry Pi as an openVPN server
 
 `sysctl -p`
 
-`cp /home/nas/files/linux/vpn_Server/firewall-openvpn-rules.sh /etc`
+`wget https://github.com/bicklp/Raspberry-Pi-OVPN-Server/blob/master/firewall-openvpn-rules.sh -P  /etc`
 
 >check file for local settings and lan port name is correct
 
@@ -80,9 +80,9 @@ Setup Raspberry Pi as an openVPN server
 
 `cd /etc/openvpn/easy-rsa/keys`
 
-`cp /home/nas/files/linux/vpn_Server/Default.txt /etc/openvpn/easy-rsa/keys`
+`wget https://github.com/bicklp/Raspberry-Pi-OVPN-Server/blob/master/Default.txt -P /etc/openvpn/easy-rsa/keys`
 
-`cp /home/nas/files/linux/vpn_Server/makeOVPN.sh /etc/openvpn/easy-rsa/keys`
+`wget https://github.com/bicklp/Raspberry-Pi-OVPN-Server/blob/master/makeOVPN.sh -P /etc/openvpn/easy-rsa/keys`
 
 `chmod 700 makeOVPN.sh`
 
