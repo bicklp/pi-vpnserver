@@ -23,52 +23,63 @@ export EASY_RSA="/etc/openvpn/easy-rsa"
 change vars at bottom of file to make it easier later
 
 `source ./vars`
+
 `./clean-all`
 this will clear all existing certificates use with care
 
-./build-ca
+`./build-ca`
 when prompted common name must equal [server name]
 
-./build-key-server [server name]
+`./build-key-server [server name]`
+
 when prompted common name must equal [server name]
 challenge password must be left blank
 
-./build-key-pass [vpn_username]
+`./build-key-pass [vpn_username]`
+
 challenge password must be left blank
 
-cd /etc/openvpn/easy-rsa/keys
-openssl rss -in [vpn_username].key -des3 -out [vpn_username].3des.key
+`cd /etc/openvpn/easy-rsa/keys`
 
-cd /etc/openvpn/easy/rsa
-./build-dh
+`openssl rss -in [vpn_username].key -des3 -out [vpn_username].3des.key`
 
-openvpn --genkey --secret keys/ta.key
+`cd /etc/openvpn/easy/rsa`
 
-cp /home/nas/files/linux/vpn_server/server.conf /etc/openvpn/
+`./build-dh`
+
+`openvpn --genkey --secret keys/ta.key`
+
+`cp /home/nas/files/linux/vpn_server/server.conf /etc/openvpn/`
+
 check server.conf file for local settings
 
-nano /etc/sysctl.conf
-uncomment net.ipv4.ip_forward=1
-sysctl -p
+`nano /etc/sysctl.conf`
 
-cp /home/nas/files/linux/vpn_Server/firewall-openvpn-rules.sh /etc
+uncomment net.ipv4.ip_forward=1
+
+`sysctl -p`
+
+`cp /home/nas/files/linux/vpn_Server/firewall-openvpn-rules.sh /etc`
+
 check file for local settings and lan port name is correct
 
 add line to interfaces file with a tab at the beginning
 pre-up /etc/firewall-openvpn-rules.sh
 
-reboot
+`reboot`
 
 Client Setup
 
 
-cd /etc/openvpn/easy-rsa/keys
+`cd /etc/openvpn/easy-rsa/keys`
 
-cp /home/nas/files/linux/vpn_Server/Default.txt /etc/openvpn/easy-rsa/keys
+`cp /home/nas/files/linux/vpn_Server/Default.txt /etc/openvpn/easy-rsa/keys`
 
-cp /home/nas/files/linux/vpn_Server/makeOVPN.sh /etc/openvpn/easy-rsa/keys
-chmod 700 makeOVPN.sh
-./makeOVPN.sh
+`cp /home/nas/files/linux/vpn_Server/makeOVPN.sh /etc/openvpn/easy-rsa/keys`
+
+`chmod 700 makeOVPN.sh`
+
+`./makeOVPN.sh`
 
 enter [vpn_username] when prompted
 export the [vpn_username].ovpn file to was
