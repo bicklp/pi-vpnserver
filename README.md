@@ -1,7 +1,7 @@
 # Raspberry-Pi-OVPN-Server
 Setup Raspberry Pi as an openVPN server
 
-Server Setup
+#Server Setup
 
 `sudo -s`
 
@@ -75,7 +75,7 @@ Server Setup
 
 `reboot`
 
-Client Setup
+#Client Setup
 
 
 `cd /etc/openvpn/easy-rsa/keys`
@@ -88,6 +88,7 @@ Client Setup
 
 `./makeOVPN.sh`
 
-enter [vpn_username] when prompted
-export the [vpn_username].ovpn file to was
+>enter [vpn_username] when prompted
+
+>export the [vpn_username].ovpn file to was
 
