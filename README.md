@@ -96,5 +96,5 @@ Setup Raspberry Pi as an openVPN server
 
 >enter [vpn_username] when prompted
 
->export the [vpn_username].ovpn file to was
+>export the [vpn_username].ovpn file to clients
 
