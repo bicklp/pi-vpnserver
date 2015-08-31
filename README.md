@@ -18,6 +18,7 @@ Server Setup
 `cd /etc/openvpn/easy-rsa`
 
 `nano vars`
+
 change export EASY_RSA to
 export EASY_RSA="/etc/openvpn/easy-rsa"
 change vars at bottom of file to make it easier later
@@ -25,9 +26,11 @@ change vars at bottom of file to make it easier later
 `source ./vars`
 
 `./clean-all`
+
 this will clear all existing certificates use with care
 
 `./build-ca`
+
 when prompted common name must equal [server name]
 
 `./build-key-server [server name]`
