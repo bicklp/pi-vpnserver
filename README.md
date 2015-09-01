@@ -107,7 +107,9 @@ nano /etc/firewall-openvpn-rules.sh
 
 ```
 nano /etc/network/interfaces
-#add line to interfaces file with a tab at the beginning
+'''
+add line to interfaces file with a tab at the beginning
+'''
 pre-up /etc/firewall-openvpn-rules.sh
 ```
 
