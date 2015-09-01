@@ -149,6 +149,10 @@ chmod 700 makeOVPN.sh
 #Add More Clients
 
 ```
+cd /etc/openvpn/easy-rsa
+```
+
+```
 source ./vars
 ```
 
