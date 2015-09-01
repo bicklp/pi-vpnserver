@@ -146,5 +146,28 @@ chmod 700 makeOVPN.sh
 #export the [vpn_username].ovpn file to clients
 ```
 
+#Add More Clients
 
+```
+source ./vars
+```
+
+```
+./build-key-pass [vpn_username]
+#challenge password must be left blank
+```
+
+```
+cd /etc/openvpn/easy-rsa/keys
+```
+
+```
+openssl rss -in [vpn_username].key -des3 -out [vpn_username].3des.key
+```
+
+```
+./makeOVPN.sh
+#enter [vpn_username] when prompted
+#export the [vpn_username].ovpn file to clients
+```
 
