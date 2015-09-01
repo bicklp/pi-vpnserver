@@ -35,7 +35,7 @@ cd /etc/openvpn/easy-rsa
 nano vars
 #change export EASY_RSA to
 export EASY_RSA="/etc/openvpn/easy-rsa"
-#change vars at bottom of file to make it easier later
+#change vars at bottom of file to make it easier later e.g. Country, county, email etc
 ```
 
 ```
@@ -49,7 +49,7 @@ source ./vars
 
 ```
 ./build-ca
-#when yo uget to Common Name. This is going to be your [server name] e.g. server1 ... take a note for next steps
+#when you get to Common Name. This is going to be your [server name] e.g. server1 ... take a note for next steps
 ```
 
 ```
