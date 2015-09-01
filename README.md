@@ -49,17 +49,18 @@ source ./vars
 
 ```
 ./build-ca
-#when prompted common name must equal [server name]
+#when yo uget to Common Name. This is going to be your [server name] e.g. server1 ... take a note for next steps
 ```
 
 ```
 ./build-key-server [server name]
-#when prompted common name must equal [server name]
+#when prompted common name must equal [server name] you entered earlier
 #challenge password must be left blank
 ```
 
 ```
 ./build-key-pass [vpn_username]
+#[vpn_username] should be the name of a client you want to connect e.g. client1 take a note as you will need in next steps
 #challenge password must be left blank
 ```
 
