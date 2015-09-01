@@ -100,18 +100,16 @@ sysctl -p
 
 ```
 wget https://github.com/bicklp/Raspberry-Pi-OVPN-Server/blob/master/firewall-openvpn-rules.sh -P  /etc
+cd /etc
+nano firewall-openvpn-rules.sh
 #check file for local settings and LAN name are correct
 ```
-
-
 
 ```
 nano /etc/network/interfaces
 #add line to interfaces file with a tab at the beginning
 pre-up /etc/firewall-openvpn-rules.sh
 ```
-
-
 
 ```
 reboot
