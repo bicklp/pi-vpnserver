@@ -132,7 +132,7 @@ nano Default.txt
 ```
 
 ```
-wget https://github.com/bicklp/Raspberry-Pi-OVPN-Server/blob/master/makeOVPN.sh -P /etc/openvpn/easy-rsa/keys
+wget https://github.com/bicklp/pi-vpnserver/blob/master/makeOVPN.sh -P /etc/openvpn/easy-rsa/keys
 ```
 
 ```
