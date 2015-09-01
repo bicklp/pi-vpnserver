@@ -92,7 +92,7 @@ nano /etc/openvpn/server.conf
 
 ```
 nano /etc/sysctl.conf
-#uncomment net.ipv4.ip_forward=1
+#uncomment net.ipv4.ip_forward=1 by removing the hash from the start of the line
 ```
 
 ```
