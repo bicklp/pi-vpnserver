@@ -72,7 +72,7 @@ openssl rss -in [vpn_username].key -des3 -out [vpn_username].3des.key
 ```
 
 ```
-cd /etc/openvpn/easy/rsa
+cd /etc/openvpn/easy/easy-rsa
 ```
 
 ```
@@ -99,7 +99,7 @@ sysctl -p
 
 ```
 wget https://github.com/bicklp/Raspberry-Pi-OVPN-Server/blob/master/firewall-openvpn-rules.sh -P  /etc
-#check file for local settings and lan port name is correct
+#check file for local settings and LAN name are correct
 ```
 
 
