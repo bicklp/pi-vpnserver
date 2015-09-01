@@ -86,7 +86,7 @@ openvpn --genkey --secret keys/ta.key
 
 ```
 wget https://github.com/bicklp/Raspberry-Pi-OVPN-Server/blob/master/server.conf -P /etc/openvpn/
-#check server.conf file for local settings
+#check server.conf file for local settings. It is commented where you need to fill in your own settings
 ```
 
 ```
