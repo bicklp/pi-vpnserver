@@ -86,8 +86,7 @@ openvpn --genkey --secret keys/ta.key
 
 ```
 wget https://github.com/bicklp/Raspberry-Pi-OVPN-Server/blob/master/server.conf -P /etc/openvpn/
-cd /etc/openvpn
-nano server.conf
+nano /etc/openvpn/server.conf
 #check server.conf file for local settings. It is commented where you need to fill in your own settings
 ```
 
@@ -102,8 +101,7 @@ sysctl -p
 
 ```
 wget https://github.com/bicklp/Raspberry-Pi-OVPN-Server/blob/master/firewall-openvpn-rules.sh -P  /etc
-cd /etc
-nano firewall-openvpn-rules.sh
+nano /etc/firewall-openvpn-rules.sh
 #check file for local settings and LAN name are correct
 ```
 
