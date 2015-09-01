@@ -24,7 +24,7 @@ mkdir /etc/openvpn/easy-rsa
 ```
 
 ```
-cp /usr/share/easy-rsa /etc/openvpn/easy-rsa
+cp /usr/share/easy-rsa/* /etc/openvpn/easy-rsa
 ```
 
 ```
