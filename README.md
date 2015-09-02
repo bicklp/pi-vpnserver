@@ -85,7 +85,7 @@ openvpn --genkey --secret keys/ta.key
 ```
 
 ```
-wget https://github.com/bicklp/pi-vpnserver/blob/master/server.conf -P /etc/openvpn/
+wget https://raw.githubusercontent.com/bicklp/pi-vpnserver/master/server.conf -P /etc/openvpn/
 nano /etc/openvpn/server.conf
 #check server.conf file for local settings. It is commented where you need to fill in your own settings
 ```
@@ -100,7 +100,7 @@ sysctl -p
 ```
 
 ```
-wget https://github.com/bicklp/pi-vpnserver/blob/master/firewall-openvpn-rules.sh -P  /etc
+wget https://raw.githubusercontent.com/bicklp/pi-vpnserver/master/firewall-openvpn-rules.sh -P  /etc
 nano /etc/firewall-openvpn-rules.sh
 #check file for local settings and LAN name are correct
 ```
@@ -123,7 +123,7 @@ cd /etc/openvpn/easy-rsa/keys
 ```
 
 ```
-wget https://github.com/bicklp/pi-vpnserver/blob/master/Default.txt -P /etc/openvpn/easy-rsa/keys
+wget https://raw.githubusercontent.com/bicklp/pi-vpnserver/master/Default.txt -P /etc/openvpn/easy-rsa/keys
 ```
 
 ```
@@ -132,7 +132,7 @@ nano Default.txt
 ```
 
 ```
-wget https://github.com/bicklp/pi-vpnserver/blob/master/makeOVPN.sh -P /etc/openvpn/easy-rsa/keys
+wget https://raw.githubusercontent.com/bicklp/pi-vpnserver/master/makeOVPN.sh -P /etc/openvpn/easy-rsa/keys
 ```
 
 ```
