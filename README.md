@@ -15,7 +15,7 @@ mkdir /etc/openvpn/easy-rsa
 cp /usr/share/easy-rsa /etc/openvpn/easy-rsa
 ```
 
-## edit the vars file and change export EASY_RSA to 
+## Edit the vars file and change line export EASY_RSA
 >export EASY_RSA="/etc/openvpn/easy-rsa"
 
 ```
@@ -28,7 +28,7 @@ source ./vars
 ./clean-all
 ./build-ca
 ```
-## build key for your server, name your server here
+## Build key for your server, name your server here
 >when prompted common name must equal [server name]
 
 >challenge password must be left blank
@@ -38,7 +38,7 @@ source ./vars
 ```
 
 
-## build key for your server, name your server here
+## build key for your server, enter a vpn username
 >challenge password must be left blank
 
 ```
@@ -49,7 +49,7 @@ cd /etc/openvpn/easy/rsa
 ./build-dh
 openvpn --genkey --secret keys/ta.key
 ```
-## get server conf file and update for your local settings
+## get server conf file and update it to your local settings
 ```
 cd /etc/openvpn
 https://raw.githubusercontent.com/bicklp/pi-vpnserver/master/server.conf
@@ -62,17 +62,17 @@ nano server.conf
 nano /etc/sysctl.conf
 sysctl -p
 ```
-## Get firewall rules and update to your local settings
+## Get firewall rules file
+> update file to your local settings and IPs etc
+
 ```
 cd /etc
 wget https://github.com/bicklp/pi-vpnserver/blob/master/firewall-openvpn-rules.sh
 ```
 
-
-## Update your interface file and add in the firewall rules file from above
+## Update your interface file
 >add line to interfaces file with a tab at the beginning
-
->pre-up /etc/firewall-openvpn-rules.sh
+**pre-up /etc/firewall-openvpn-rules.sh**
 
 
 ```
