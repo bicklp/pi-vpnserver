@@ -31,6 +31,7 @@ source ./vars
 ```
 ## Build key for your server, name your server here
 -**when prompted common name must equal [server name]**
+
 -**challenge password must be left blank**
 
 ```
@@ -56,14 +57,14 @@ https://raw.githubusercontent.com/bicklp/pi-vpnserver/master/server.conf
 nano server.conf
 ```
 ## enable ipv4 forwarding 
--**uncomment net.ipv4.ip_forward=1**
+**uncomment net.ipv4.ip_forward=1**
 
 ```
 nano /etc/sysctl.conf
 sysctl -p
 ```
 ## Get firewall rules file
--**update file to your local settings and IPs etc**
+**update file to your local settings and IPs etc**
 
 ```
 cd /etc
@@ -90,7 +91,7 @@ reboot
 cd /etc/openvpn/easy-rsa/keys
 ```
 #Download the default file and update settings
--**Set the Public IP or DDNS name in the Default.txt file**
+**Set the Public IP or DDNS name in the Default.txt file**
 
 ```
 cd /etc/openvpn/easy-rsa/keys
@@ -109,11 +110,12 @@ wget https://github.com/bicklp/pi-vpnserver/blob/master/makeOVPN.sh
 chmod 700 makeOVPN.sh
 ```
 ##run the file and enter your server / client details
+**enter [vpn_username] when prompted**
 
+**export the [vpn_username].ovpn file to clients**
 ```
 ./makeOVPN.sh
-#enter [vpn_username] when prompted
-#export the [vpn_username].ovpn file to clients
+
 ```
 
 
