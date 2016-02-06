@@ -18,7 +18,7 @@ cp /usr/share/easy-rsa /etc/openvpn/easy-rsa
 ## Edit the vars file
 - change line export EASY_RSA to
 
->export EASY_RSA="/etc/openvpn/easy-rsa"*
+*export EASY_RSA="/etc/openvpn/easy-rsa"*
 
 ```
 cd /etc/openvpn/easy-rsa
@@ -39,7 +39,7 @@ source ./vars
 ```
 
 
-## build key for your server, enter a vpn username
+## Build the key for your server, enter a vpn username
 - challenge password must be left blank
 
 ```
@@ -50,13 +50,13 @@ cd /etc/openvpn/easy/rsa
 ./build-dh
 openvpn --genkey --secret keys/ta.key
 ```
-## get server conf file and update it to your local settings
+## Get the server.conf file and update it to your local settings
 ```
 cd /etc/openvpn
 https://raw.githubusercontent.com/bicklp/pi-vpnserver/master/server.conf
 nano server.conf
 ```
-## enable ipv4 forwarding 
+## Enable ipv4 forwarding 
 - uncomment net.ipv4.ip_forward=1
 
 ```
@@ -74,24 +74,24 @@ wget https://github.com/bicklp/pi-vpnserver/blob/master/firewall-openvpn-rules.s
 ## Update your interface file
 - add line to interfaces file with a tab at the beginning
 
->pre-up /etc/firewall-openvpn-rules.sh
+*pre-up /etc/firewall-openvpn-rules.sh*
 
 
 ```
 nano /etc/network/interfaces
 ```
-#Reboot the server
+## Reboot the server
 ```
 reboot
 ```
 
-#Client Setup
+## Client Setup
 
 
 ```
 cd /etc/openvpn/easy-rsa/keys
 ```
-#Download the default file and update settings
+## Download the default file and update settings
 - Set the Public IP or DDNS name in the Default.txt file
 
 ```
@@ -100,12 +100,12 @@ wget https://github.com/bicklp/pi-vpnserver/blob/master/Default.txt
 nano Default.txt
 ```
 
-##Get the script to generate the client files
+## Get the script to generate the client files
 ```
 cd /etc/openvpn/easy-rsa/keys
 wget https://github.com/bicklp/pi-vpnserver/blob/master/makeOVPN.sh
 ```
-##set permissions for the file
+## Set permissions for the file
 
 ```
 chmod 700 makeOVPN.sh
