@@ -16,7 +16,7 @@ cp /usr/share/easy-rsa /etc/openvpn/easy-rsa
 ```
 
 ## Edit the vars file
--change line export EASY_RSA to
+- change line export EASY_RSA to
 >export EASY_RSA="/etc/openvpn/easy-rsa"*
 
 ```
@@ -30,8 +30,8 @@ source ./vars
 ./build-ca
 ```
 ## Build key for your server, name your server here
--when prompted common name must equal [server name]
--challenge password must be left blank
+- when prompted common name must equal [server name]
+- challenge password must be left blank
 
 ```
 ./build-key-server [server name]
@@ -39,7 +39,7 @@ source ./vars
 
 
 ## build key for your server, enter a vpn username
--challenge password must be left blank
+- challenge password must be left blank
 
 ```
 ./build-key-pass [vpn_username]
@@ -56,14 +56,14 @@ https://raw.githubusercontent.com/bicklp/pi-vpnserver/master/server.conf
 nano server.conf
 ```
 ## enable ipv4 forwarding 
--uncomment net.ipv4.ip_forward=1
+- uncomment net.ipv4.ip_forward=1
 
 ```
 nano /etc/sysctl.conf
 sysctl -p
 ```
 ## Get firewall rules file
--update file to your local settings and IPs etc
+- update file to your local settings and IPs etc
 
 ```
 cd /etc
@@ -71,7 +71,7 @@ wget https://github.com/bicklp/pi-vpnserver/blob/master/firewall-openvpn-rules.s
 ```
 
 ## Update your interface file
--add line to interfaces file with a tab at the beginning
+- add line to interfaces file with a tab at the beginning
 >pre-up /etc/firewall-openvpn-rules.sh
 
 
@@ -90,7 +90,7 @@ reboot
 cd /etc/openvpn/easy-rsa/keys
 ```
 #Download the default file and update settings
--Set the Public IP or DDNS name in the Default.txt file
+- Set the Public IP or DDNS name in the Default.txt file
 
 ```
 cd /etc/openvpn/easy-rsa/keys
@@ -109,8 +109,8 @@ wget https://github.com/bicklp/pi-vpnserver/blob/master/makeOVPN.sh
 chmod 700 makeOVPN.sh
 ```
 ##run the file and enter your server / client details
--enter [vpn_username] when prompted
--export the [vpn_username].ovpn file to clients
+- enter [vpn_username] when prompted
+- export the [vpn_username].ovpn file to clients
 ```
 ./makeOVPN.sh
 
