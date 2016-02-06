@@ -1,116 +1,84 @@
 # Raspberry-Pi-OVPN-Server
 Setup Raspberry Pi as an openVPN server
 
-#Server Setup
-
+## Update the Server
 ```
 sudo -s
-```
-
-```
 apt-get update
-```
-
-```
 apt-get upgrade
 ```
 
+## Install the software
 ```
 apt-get install openvpn easy-rsa
-```
-
-```
 mkdir /etc/openvpn/easy-rsa
+cp /usr/share/easy-rsa /etc/openvpn/easy-rsa
 ```
 
-```
-cp /usr/share/easy-rsa/* /etc/openvpn/easy-rsa
-```
+## edit the vars file and change export EASY_RSA to 
+>export EASY_RSA="/etc/openvpn/easy-rsa"
 
 ```
 cd /etc/openvpn/easy-rsa
-```
-
-```
 nano vars
-#change export EASY_RSA to
-export EASY_RSA="/etc/openvpn/easy-rsa"
-#change vars at bottom of file to make it easier later e.g. Country, county, email etc
 ```
 
 ```
 source ./vars
-```
-
-```
 ./clean-all
-#this will clear all existing certificates use with care
-```
-
-```
 ./build-ca
-#when you get to Common Name. This is going to be your [server name] e.g. server1 ... take a note for next steps
 ```
+## build key for your server, name your server here
+>when prompted common name must equal [server name]
+
+>challenge password must be left blank
 
 ```
 ./build-key-server [server name]
-#when prompted common name must equal [server name] you entered earlier
-#challenge password must be left blank
 ```
+
+
+## build key for your server, name your server here
+>challenge password must be left blank
 
 ```
 ./build-key-pass [vpn_username]
-#[vpn_username] should be the name of a client you want to connect e.g. client1 take a note as you will need in next steps
-#challenge password must be left blank
-```
-
-```
 cd /etc/openvpn/easy-rsa/keys
-```
-
-```
 openssl rss -in [vpn_username].key -des3 -out [vpn_username].3des.key
-```
-
-```
-cd /etc/openvpn/easy/easy-rsa
-```
-
-```
+cd /etc/openvpn/easy/rsa
 ./build-dh
-```
-
-```
 openvpn --genkey --secret keys/ta.key
 ```
-
+## get server conf file and update for your local settings
 ```
-wget https://raw.githubusercontent.com/bicklp/pi-vpnserver/master/server.conf -P /etc/openvpn/
-nano /etc/openvpn/server.conf
-#check server.conf file for local settings. It is commented where you need to fill in your own settings
+cd /etc/openvpn
+wget https://github.com/bicklp/Raspberry-Pi-OVPN-Server/blob/master/server.conf
+nano server.conf
 ```
+## enable ipv4 forwarding 
+>uncomment net.ipv4.ip_forward=1
 
 ```
 nano /etc/sysctl.conf
-#uncomment net.ipv4.ip_forward=1 by removing the hash from the start of the line
-```
-
-```
 sysctl -p
 ```
+## Get firewall rules and update to your local settings
+```
+cd /etc
+wget https://github.com/bicklp/Raspberry-Pi-OVPN-Server/blob/master/firewall-openvpn-rules.sh
+```
 
-```
-wget https://raw.githubusercontent.com/bicklp/pi-vpnserver/master/firewall-openvpn-rules.sh -P  /etc
-nano /etc/firewall-openvpn-rules.sh
-#check file for local settings and LAN name are correct
-```
+
+## Update your interface file and add in the firewall rules file from above
+>add line to interfaces file with a tab at the beginning
+
+>pre-up /etc/firewall-openvpn-rules.sh
+
 
 ```
 nano /etc/network/interfaces
-#add line to interfaces file with a tab at the beginning
-pre-up /etc/firewall-openvpn-rules.sh
 ```
-
+#Reboot the server
 ```
 reboot
 ```
@@ -121,23 +89,26 @@ reboot
 ```
 cd /etc/openvpn/easy-rsa/keys
 ```
+#Download the default file and update settings
+>Set the Public IP or DDNS name in the Default.txt file
 
 ```
-wget https://raw.githubusercontent.com/bicklp/pi-vpnserver/master/Default.txt -P /etc/openvpn/easy-rsa/keys
-```
-
-```
+cd /etc/openvpn/easy-rsa/keys
+wget https://github.com/bicklp/Raspberry-Pi-OVPN-Server/blob/master/Default.txt
 nano Default.txt
-#Set the Public IP or DDNS name in the Default.txt file
 ```
 
+#get the script which will generate the client files
 ```
-wget https://raw.githubusercontent.com/bicklp/pi-vpnserver/master/makeOVPN.sh -P /etc/openvpn/easy-rsa/keys
+cd /etc/openvpn/easy-rsa/keys
+wget https://github.com/bicklp/Raspberry-Pi-OVPN-Server/blob/master/makeOVPN.sh
 ```
+>set permissions for the file
 
 ```
 chmod 700 makeOVPN.sh
 ```
+>run the file and enter your server / client details
 
 ```
 ./makeOVPN.sh
@@ -145,32 +116,5 @@ chmod 700 makeOVPN.sh
 #export the [vpn_username].ovpn file to clients
 ```
 
-#Add More Clients
 
-```
-cd /etc/openvpn/easy-rsa
-```
-
-```
-source ./vars
-```
-
-```
-./build-key-pass [vpn_username]
-#challenge password must be left blank
-```
-
-```
-cd /etc/openvpn/easy-rsa/keys
-```
-
-```
-openssl rss -in [vpn_username].key -des3 -out [vpn_username].3des.key
-```
-
-```
-./makeOVPN.sh
-#enter [vpn_username] when prompted
-#export the [vpn_username].ovpn file to clients
-```
 
