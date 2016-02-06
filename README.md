@@ -57,7 +57,9 @@ https://raw.githubusercontent.com/bicklp/pi-vpnserver/master/server.conf
 nano server.conf
 ```
 ## Enable ipv4 forwarding 
-- uncomment net.ipv4.ip_forward=1
+- uncomment the line
+
+*net.ipv4.ip_forward=1*
 
 ```
 nano /etc/sysctl.conf
