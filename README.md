@@ -16,7 +16,7 @@ cp /usr/share/easy-rsa /etc/openvpn/easy-rsa
 ```
 
 ## Edit the vars file and change line export EASY_RSA
->export EASY_RSA="/etc/openvpn/easy-rsa"
+>**export EASY_RSA="/etc/openvpn/easy-rsa"**
 
 ```
 cd /etc/openvpn/easy-rsa
@@ -72,7 +72,8 @@ wget https://github.com/bicklp/pi-vpnserver/blob/master/firewall-openvpn-rules.s
 
 ## Update your interface file
 >add line to interfaces file with a tab at the beginning
-**pre-up /etc/firewall-openvpn-rules.sh**
+
+>**pre-up /etc/firewall-openvpn-rules.sh**
 
 
 ```
