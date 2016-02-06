@@ -52,7 +52,7 @@ openvpn --genkey --secret keys/ta.key
 ## get server conf file and update for your local settings
 ```
 cd /etc/openvpn
-wget https://github.com/bicklp/Raspberry-Pi-OVPN-Server/blob/master/server.conf
+https://raw.githubusercontent.com/bicklp/pi-vpnserver/master/server.conf
 nano server.conf
 ```
 ## enable ipv4 forwarding 
@@ -65,7 +65,7 @@ sysctl -p
 ## Get firewall rules and update to your local settings
 ```
 cd /etc
-wget https://github.com/bicklp/Raspberry-Pi-OVPN-Server/blob/master/firewall-openvpn-rules.sh
+wget https://github.com/bicklp/pi-vpnserver/blob/master/firewall-openvpn-rules.sh
 ```
 
 
@@ -94,14 +94,14 @@ cd /etc/openvpn/easy-rsa/keys
 
 ```
 cd /etc/openvpn/easy-rsa/keys
-wget https://github.com/bicklp/Raspberry-Pi-OVPN-Server/blob/master/Default.txt
+wget https://github.com/bicklp/pi-vpnserver/blob/master/Default.txt
 nano Default.txt
 ```
 
 #get the script which will generate the client files
 ```
 cd /etc/openvpn/easy-rsa/keys
-wget https://github.com/bicklp/Raspberry-Pi-OVPN-Server/blob/master/makeOVPN.sh
+wget https://github.com/bicklp/pi-vpnserver/blob/master/makeOVPN.sh
 ```
 >set permissions for the file
 
