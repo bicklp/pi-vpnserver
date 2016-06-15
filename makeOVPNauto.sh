@@ -4,9 +4,8 @@
 DEFAULT="Default.txt" 
 FILEEXT=".ovpn" 
 CRT=".crt" 
-KEY=".3des.key" 
+KEY=".key" 
 CA="ca.crt" 
-TA="ta.key" 
  
 #Ask for a Client name 
 echo "Please enter an existing Client Name:"
@@ -35,13 +34,6 @@ if [ ! -f $CA ]; then
 fi 
 echo "CA public Key found: $CA" 
  
-#Confirm the tls-auth ta key file exists 
-if [ ! -f $TA ]; then 
- echo "[ERROR]: tls-auth Key not found: $TA" 
- exit 
-fi 
-echo "tls-auth Private Key found: $TA" 
- 
 #Ready to make a new .opvn file - Start by populating with the 
 #default file 
 cat $DEFAULT > $NAME$FILEEXT 
@@ -60,10 +52,5 @@ echo "</cert>" >> $NAME$FILEEXT
 echo "<key>" >> $NAME$FILEEXT 
 cat $NAME$KEY >> $NAME$FILEEXT 
 echo "</key>" >> $NAME$FILEEXT 
- 
-#Finally, append the TA Private Key 
-echo "<tls-auth>" >> $NAME$FILEEXT 
-cat $TA >> $NAME$FILEEXT 
-echo "</tls-auth>" >> $NAME$FILEEXT 
- 
+
 echo "Done! $NAME$FILEEXT Successfully Created."
